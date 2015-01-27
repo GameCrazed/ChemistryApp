@@ -1,0 +1,49 @@
+{
+    "Elements": [
+        "1":{
+            "atomicNo": "1",
+            "symbol": "H",
+            "name": "Hydrogen",
+            "atomicMass": 1.00794,
+            "state": 3,
+            "type": 0,
+            "electrons": "1"
+        },
+        "2":{
+            "atomicNo": 2,
+            "symbol": "He",
+            "name": "Helium",
+            "atomicMass": 4.002602,
+            "state": 3,
+            "type": 0,
+            "electrons": "2"
+        },
+        "3":{
+            "atomicNo": 3,
+            "symbol": "Li",
+            "name": "Lithium",
+            "atomicMass": 6.941,
+            "state": 1,
+            "type": 8,
+            "electrons": "2-1"
+        },
+        "4":{
+            "atomicNo": 4,
+            "symbol": "Be",
+            "name": "Beryllium",
+            "atomicMass": 9.012182,
+            "state": 1,
+            "type": 1,
+            "electrons": "2-2"
+        },
+        "5":{
+            "atomicNo": 5,
+            "symbol": "B",
+            "name": "Boron",
+            "atomicMass": 10.811,
+            "state": 1,
+            "type": 7,
+            "electrons": "2-3"
+        }
+    ]
+}
