@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.R;
 
 public class MainActivity extends Activity {
 
@@ -60,6 +61,7 @@ public class MainActivity extends Activity {
 		 }
 	}
 
+
 	public class WebAppInterface {
 		Context mContext;
 
@@ -68,27 +70,27 @@ public class MainActivity extends Activity {
 			mContext = c;
 		}
 
+
 //		@JavascriptInterface
 		public void getID(String toast) {
-			// Show toast of the atomic symbol - ID
-			Toast.makeText(mContext, toast, Toast.LENGTH_SHORT).show();
 
 			// Switch to another screen - start second activity
 
-			Intent intent = new Intent(MainActivity.this, Element.class);
+//			Intent intent = new Intent(MainActivity.this, Element.class);
 
-			 startActivity(intent.putExtra("image", R.raw.a1));
+//			 startActivity(intent.putExtra("image", raw.a1));
 
-			 startActivity(intent);
+//			 startActivity(intent);
+// Show toast of the atomic symbol - ID
+//            Toast.makeText(mContext, toast, Toast.LENGTH_SHORT).show();
 
 			// Using the ID, show a specific image on the second screen.
 
-			// IF statement not working :D
-			if (toast == "H") {
-				System.out.println("TEST!!!!!!!");
-			}
+            Intent myIntent = new Intent(MainActivity.this, Element.class);
+            startActivity(myIntent);
 
-		}
+
+			}
 	}
 
 	@Override
