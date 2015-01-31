@@ -13,12 +13,12 @@ public class Element extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.element_info);
 
-//		 final String image = getIntent().getStringExtra("image");
-//
-//		 int foo = Integer.parseInt(image);
-//
-//		ImageView image1 = (ImageView) (findViewById(R.id.imageView1));
-//		image1.setImageResource(R.raw.a1);
+		// final String image = getIntent().getStringExtra("image");
+
+		// int foo = Integer.parseInt(image);
+
+		ImageView image1 = (ImageView) (findViewById(R.id.imageView1));
+		image1.setImageResource(R.raw.a1);
 
 	}
 
