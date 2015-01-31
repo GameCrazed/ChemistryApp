@@ -1,5 +1,7 @@
 package com.example.pt;
 
+import org.json.JSONException;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -35,6 +37,15 @@ public class WebAppInterface extends Activity {
 		AlertDialog alertDialog = alertDialogBuilder.create();
 		// show alert
 		alertDialog.show();
+
+		Parser a = new Parser();
+		try {
+			a.use(mContext);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 
 }

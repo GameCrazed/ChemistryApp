@@ -29,6 +29,7 @@ public class MainActivity extends Activity {
 		webview.addJavascriptInterface(new WebAppInterface(this), "ID");
 
 		setContentView(webview);
+		// setContentView(R.layout.activity_main.);
 
 		// Read & display elements from a HTML file in the WebView
 		try {
@@ -42,7 +43,7 @@ public class MainActivity extends Activity {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
+		
 	}
 
 	public boolean onCreateOptionsMenu(Menu menu) {
