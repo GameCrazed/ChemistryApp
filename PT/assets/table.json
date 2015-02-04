@@ -1,5 +1,4 @@
 {
-    "Elements": [
         1:{
             "symbol": "H",
             "name": "Hydrogen",
@@ -944,5 +943,4 @@
             "type": ,
             "electrons": ""
         },
-    ]
 }

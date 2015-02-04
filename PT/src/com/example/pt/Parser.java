@@ -1,77 +1,80 @@
 package com.example.pt;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.AssetManager;
+import android.util.Log;
 import android.widget.Toast;
 
 public class Parser extends Activity {
 
 	// Method that will parse the JSON file and will return a JSONObject
-	public JSONObject parser() {
+	@SuppressWarnings("unused")
+	public String parser() {
 		String JSONString = null;
-		JSONObject JSONObject = null;
+		JSONObject JSONObject;
 
 		try {
 
-			// open the inputStream to the file
-			InputStream inputStream = getAssets().open("table.json");
+			// InputStream inputStream = getAssets().open("table.json");
+			// InputStream inputStream = new
+			// InputStream("C:\\Users\\Tyba\\Android\\PT\\assets\\table.json");
 
-			int sizeOfJSONFile = inputStream.available();
+			// InputStream inputStream = new FileInputStream(
+			// "//PT//assets//table.json");
+			
+			Log.w("1", "1");
 
-			// array that will store all the data
-			byte[] bytes = new byte[sizeOfJSONFile];
+			AssetManager assetManager = getAssets();
+			Log.w("2", "2");
+			InputStream inputStream = assetManager.open("table.json");
+			Log.w("3", "3");
 
-			// reading data into the array from the file
-			inputStream.read(bytes);
+			BufferedReader in = new BufferedReader(new InputStreamReader(
+					inputStream, "UTF-8"));
+			Log.w("4", "4");
+			Log.w("The file is ....", in.readLine());
 
-			// close the input stream
-			inputStream.close();
+			StringBuilder buf = new StringBuilder();
 
-			JSONString = new String(bytes, "UTF-8");
-			JSONObject = new JSONObject(JSONString);
+			while ((JSONString = in.readLine()) != null) {
+				buf.append(JSONString);
+				Log.w("IN_LOOP", JSONString);
+			}
+
+			in.close();
 
 		} catch (IOException ex) {
+			Log.e("YOUR_APP_LOG_TAG", "I got an error", ex);
 
-			ex.printStackTrace();
-			return null;
-
-		} catch (JSONException x) {
-
-			x.printStackTrace();
-			return null;
 		}
 
-		return JSONObject;
+		return JSONString;
+
 	}
 
-	public void use(Context c) throws JSONException {
+	@SuppressWarnings("unused")
+	public void use(Context c) {
 
 		Toast.makeText(c, "BEFORE", Toast.LENGTH_SHORT).show(); // Appears
 
 		// Get the JSON object from the data
-		JSONObject parent = this.parser(); // This line causing problem. Nothing
-		// happens after executing this line
+		// JSONObject parent = this.parser();
 
-		Toast.makeText(c, "AFTER", Toast.LENGTH_SHORT).show(); // Does not
-		// appear
+		String parent = this.parser();
 
-		// THis will store all the values inside "Hydrogen" in a element string
-		String element = parent.getString("Hydrogen");
+		final String TAG1 = "TOAST";
+		Log.i(TAG1, "I got an error");
 
-		Toast.makeText(c, element, Toast.LENGTH_SHORT).show();
-
-		// THis will store "1" inside atomicNumber
-		String atomicNumber = parent.getJSONObject("Hydrogen").getString(
-				"atomic_number");
-
-		Toast.makeText(c, atomicNumber, Toast.LENGTH_SHORT).show();
-
+		Toast.makeText(c, "AFTER", Toast.LENGTH_SHORT).show();
 	}
 
 }
