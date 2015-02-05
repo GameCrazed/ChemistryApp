@@ -37,17 +37,17 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 
 		// Create a new WebView for HTML to run
-		WebView webview = new WebView(this);
+		WebView webView = new WebView(this);
 
 		// Enable JavaScriptin WebView
-		webview.getSettings().setJavaScriptEnabled(true);
+		webView.getSettings().setJavaScriptEnabled(true);
 
 		// Add the WebAppInterface class to the JavaScript so the HTML button
 		// can access the methods from the WebAppInterface class.
 		// JavaScriptInterface is called "Symbol".
-		webview.addJavascriptInterface(new WebAppInterface(this), "Symbol");
+		webView.addJavascriptInterface(new WebAppInterface(this), "Symbol");
 
-		setContentView(webview);
+		setContentView(webView);
 
 		// Read & display elements from a HTML file in the WebView
 		try {
@@ -57,12 +57,13 @@ public class MainActivity extends Activity {
 			stream.read(buffer);
 			stream.close();
 			String html = new String(buffer);
-			webview.loadData(html, "text/html", "UTF-8");
+			webView.loadData(html, "text/html", "UTF-8");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-		webview.getSettings().setBuiltInZoomControls(true);
+		webView.getSettings().setBuiltInZoomControls(true);
+		webView.getSettings().setDisplayZoomControls(false);
 
 		// Instantiate the object of Database class.
 		db = new Database(this);
