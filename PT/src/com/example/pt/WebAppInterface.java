@@ -1,12 +1,9 @@
 package com.example.pt;
 
-import org.json.JSONException;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.util.Log;
 
 public class WebAppInterface extends Activity {
 	Context mContext;
@@ -14,6 +11,7 @@ public class WebAppInterface extends Activity {
 	/** Instantiate the interface and set the context */
 	WebAppInterface(Context c) {
 		mContext = c;
+
 	}
 
 	public void displayElement(String toast) {
@@ -38,11 +36,7 @@ public class WebAppInterface extends Activity {
 		AlertDialog alertDialog = alertDialogBuilder.create();
 		// show alert
 		alertDialog.show();
-		
 
-		Parser a = new Parser();
-		a.use(mContext);
-
+		// db.getElement("Al");
 	}
-
 }

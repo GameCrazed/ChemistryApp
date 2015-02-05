@@ -12,6 +12,8 @@ import android.webkit.WebView;
 
 public class MainActivity extends Activity {
 
+	public MySQLiteHelper db;
+
 	@SuppressLint("SetJavaScriptEnabled")
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -43,7 +45,12 @@ public class MainActivity extends Activity {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
+		db = new MySQLiteHelper(this);
+
+		db.addALL(db);
+		db.getElement("Al");
+
 	}
 
 	public boolean onCreateOptionsMenu(Menu menu) {

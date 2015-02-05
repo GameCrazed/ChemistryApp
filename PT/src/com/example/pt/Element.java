@@ -1,35 +1,75 @@
 package com.example.pt;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+public class Element {
 
-public class Element extends Activity {
+	private int atomicNo;
+	private String atomicSymbol;
+	private String atomicName;
+	private double atomicMass;
+	private String electrons;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.element_info);
+	public Element() {
+		// empty Constructor
+	}
+
+	public Element(int atomicNo, String atomicSymbol, String atomicName,
+			double atomicMass, String electrons) {
+		super();
+
+		this.atomicNo = atomicNo;
+		this.atomicSymbol = atomicSymbol;
+		this.atomicName = atomicName;
+		this.atomicMass = atomicMass;
+		this.electrons = electrons;
 
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
+	public int getAtomicNumber() {
+		return atomicNo;
+	}
+
+	public String getAtomicSymbol() {
+		return atomicSymbol;
+	}
+
+	public String getAtomicName() {
+		return atomicName;
+	}
+
+	public double getAtomicMass() {
+		return atomicMass;
+	}
+
+	public String getElectrons() {
+		return electrons;
+	}
+
+	public void setAtomicNo(int atomicNo) {
+		this.atomicNo = atomicNo;
+	}
+
+	public void setAtomicSymbol(String atomicSymbol) {
+		this.atomicSymbol = atomicSymbol;
+	}
+
+	public void setAtomicName(String atomicName) {
+		this.atomicName = atomicName;
+	}
+
+	public void setAtomicMass(double atomicMass) {
+		this.atomicMass = atomicMass;
+	}
+
+	public void setElectrons(String electrons) {
+		this.electrons = electrons;
 	}
 
 	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
+	public String toString() {
+
+		return "Element[atomicNo=" + atomicNo + ", atomicSymbol="
+				+ atomicSymbol + ", atomicName=" + atomicName + ", atomicMass="
+				+ atomicMass + ", electrons=" + electrons + "]";
 	}
+
 }
