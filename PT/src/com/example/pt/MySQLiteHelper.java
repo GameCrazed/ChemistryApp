@@ -75,7 +75,11 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 		db.close();
 	}
 
-	public void getElement(String atomicSymbol) {
+	// created an object on Element class outside of method, so both of the
+	// below methods can access
+	Element element = new Element();
+
+	public String getElement(String atomicSymbol) {
 
 		// 1. get reference to readable DB
 		SQLiteDatabase db = this.getReadableDatabase();
@@ -89,7 +93,6 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 		}
 
 		// 4. build book object
-		Element element = new Element();
 
 		element.setAtomicNo(Integer.parseInt(cursor.getString(0)));
 		element.setAtomicSymbol(cursor.getString(1));
@@ -99,8 +102,13 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
 		Log.d("getElement1(" + atomicSymbol + ")", element.toString());
 
-		// 5. return book
-		// return element;
+		return element.toString();
+	}
+
+	public String getName() {
+
+		return element.getAtomicName() + " - " + element.getAtomicSymbol();
+
 	}
 
 	public void addALL(MySQLiteHelper db) {

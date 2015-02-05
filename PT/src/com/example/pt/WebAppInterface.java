@@ -14,17 +14,13 @@ public class WebAppInterface extends Activity {
 
 	}
 
-	public void displayElement(String toast) {
-		// Show toast of the atomic symbol - ID
-		// Toast.makeText(mContext, toast, Toast.LENGTH_SHORT).show();
+	public void displayElement(String atomicSymbol) {
 
 		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
 				mContext);
 
-		alertDialogBuilder.setTitle(toast);
-
-		// This turd needs to pick up data from the JSON file and display it.
-		alertDialogBuilder.setMessage(toast);
+		alertDialogBuilder.setMessage(MainActivity.fillDialog(atomicSymbol));
+		alertDialogBuilder.setTitle(MainActivity.fillHeading());
 
 		// set neutral button to exit alert
 		alertDialogBuilder.setNeutralButton("Back",
@@ -37,6 +33,5 @@ public class WebAppInterface extends Activity {
 		// show alert
 		alertDialog.show();
 
-		// db.getElement("Al");
 	}
 }

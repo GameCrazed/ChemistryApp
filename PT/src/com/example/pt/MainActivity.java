@@ -12,7 +12,7 @@ import android.webkit.WebView;
 
 public class MainActivity extends Activity {
 
-	public MySQLiteHelper db;
+	public static MySQLiteHelper db;
 
 	@SuppressLint("SetJavaScriptEnabled")
 	@Override
@@ -47,9 +47,17 @@ public class MainActivity extends Activity {
 		}
 
 		db = new MySQLiteHelper(this);
-
 		db.addALL(db);
-		db.getElement("Al");
+
+	}
+
+	public static String fillDialog(String atomicSymbol) {
+		return db.getElement(atomicSymbol);
+
+	}
+
+	public static String fillHeading() {
+		return db.getName();
 
 	}
 

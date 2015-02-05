@@ -67,9 +67,9 @@ public class Element {
 	@Override
 	public String toString() {
 
-		return "Element[atomicNo=" + atomicNo + ", atomicSymbol="
-				+ atomicSymbol + ", atomicName=" + atomicName + ", atomicMass="
-				+ atomicMass + ", electrons=" + electrons + "]";
+		return "Atomic Number: " + atomicNo + "\nAtomic Mass: " + atomicMass
+				+ "\nElectrons: " + electrons;
+
 	}
 
 }
