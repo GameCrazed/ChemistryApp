@@ -12,7 +12,24 @@ import android.webkit.WebView;
 
 public class MainActivity extends Activity {
 
-	public static MySQLiteHelper db;
+	/*
+	 * Explanation of why db is static and why the methods fillDialog and
+	 * fillHeading were created. Only one instant of the database class is
+	 * required which is created in this class, MainActivity. Next, the
+	 * WebAppInterface needs to query the database and display element
+	 * information in AlertDialog. The WebAppInterface class takes care of the
+	 * AlertDialog and webview and keeps MainActivity clutter-free.
+	 * 
+	 * The problem is that the instance db cannot be called from
+	 * WebAppInterface, a new instance would need to be created and populated
+	 * from WebAppInterface which would cause the app to crash.
+	 * 
+	 * This why the I've created methods in this class for the WebAppInterface
+	 * to use.
+	 */
+
+	// Database is the class which creates and populates the database.
+	public static Database db;
 
 	@SuppressLint("SetJavaScriptEnabled")
 	@Override
@@ -27,8 +44,8 @@ public class MainActivity extends Activity {
 
 		// Add the WebAppInterface class to the JavaScript so the HTML button
 		// can access the methods from the WebAppInterface class.
-		// JavaScriptInterface is called "ID".
-		webview.addJavascriptInterface(new WebAppInterface(this), "ID");
+		// JavaScriptInterface is called "Symbol".
+		webview.addJavascriptInterface(new WebAppInterface(this), "Symbol");
 
 		setContentView(webview);
 
@@ -47,7 +64,9 @@ public class MainActivity extends Activity {
 
 		webview.getSettings().setBuiltInZoomControls(true);
 
-		db = new MySQLiteHelper(this);
+		// Instantiate the object of Database class.
+		db = new Database(this);
+		// Populate the database with all 118 elements.
 		db.addALL(db);
 
 	}
@@ -55,7 +74,9 @@ public class MainActivity extends Activity {
 	// This method returns the atomic number, mass, and electrons of the element
 	// and is then used to populate the body of the AlertDialog.
 	// This method is called in the WebAppInterface class, in the method called
-	// displayElement @ line 22.
+	// displayElement.
+	// Below method is calling another method called getElement which is in the
+	// Database class - please see that class for info on method.
 	public static String fillDialog(String atomicSymbol) {
 		return db.getElement(atomicSymbol);
 
@@ -63,7 +84,9 @@ public class MainActivity extends Activity {
 
 	// This method works the same as above except is returns the atomic name and
 	// symbol which is shown in the title of the AlertDialog.
-	// Again this is called from the WebAppInterface class @ line 23.
+	// Again this is called from the WebAppInterface class.
+	// Below method is calling another method called getName which is in the
+	// Database class.
 	public static String fillHeading() {
 		return db.getName();
 

@@ -22,7 +22,7 @@ public class WebAppInterface extends Activity {
 		alertDialogBuilder.setMessage(MainActivity.fillDialog(atomicSymbol));
 		alertDialogBuilder.setTitle(MainActivity.fillHeading());
 
-		// set neutral button to exit alert
+		// Back button.
 		alertDialogBuilder.setNeutralButton("Back",
 				new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
@@ -30,7 +30,6 @@ public class WebAppInterface extends Activity {
 				});
 
 		AlertDialog alertDialog = alertDialogBuilder.create();
-		// show alert
 		alertDialog.show();
 
 	}
