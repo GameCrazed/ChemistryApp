@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.view.ContextThemeWrapper;
 
 public class WebAppInterface extends Activity {
 	Context mContext;
@@ -16,8 +17,11 @@ public class WebAppInterface extends Activity {
 
 	public void displayElement(String atomicSymbol) {
 
+		// AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+		// mContext);
+
 		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-				mContext);
+				new ContextThemeWrapper(mContext, android.R.style.Theme_Holo));
 
 		alertDialogBuilder.setMessage(MainActivity.fillDialog(atomicSymbol));
 		alertDialogBuilder.setTitle(MainActivity.fillHeading());
@@ -31,6 +35,7 @@ public class WebAppInterface extends Activity {
 
 		AlertDialog alertDialog = alertDialogBuilder.create();
 		alertDialog.show();
+		// alertDialog.getWindow().setLayout(800,900);
 
 	}
 }

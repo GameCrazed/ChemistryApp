@@ -264,14 +264,14 @@ public class Database extends SQLiteOpenHelper {
 				"2-8-18-32-32-16-2"));
 		addElement(new Element(111, "Rg", "Roentgenium", 272,
 				"2-8-18-32-32-17-2"));
-		addElement(new Element(112, "Cn", "Ununbium", 277, "2-8-18-32-32-18-2"));
+		addElement(new Element(112, "Uub", "Ununbium", 277, "2-8-18-32-32-18-2"));
 		addElement(new Element(113, "Uut", "Ununtrium", 284,
 				"2-8-18-32-32-18-3"));
-		addElement(new Element(114, "Fl", "Ununquadium", 289,
+		addElement(new Element(114, "Uug", "Ununquadium", 289,
 				"2-8-18-32-32-18-4"));
 		addElement(new Element(115, "Uup", "Ununpentium", 288,
 				"2-8-18-32-32-18-5"));
-		addElement(new Element(116, "Lv", "Ununhexium", 298,
+		addElement(new Element(116, "Uuh", "Ununhexium", 298,
 				"2-8-18-32-32-18-6"));
 		addElement(new Element(117, "Uus", "Ununseptium", 294,
 				"2-8-18-32-32-18-7"));
