@@ -9,6 +9,9 @@ import android.util.Log;
 
 public class MySQLiteHelper extends SQLiteOpenHelper {
 
+	// Tutorial used to create this class:
+	// http://hmkcode.com/android-simple-sqlite-database-tutorial/
+
 	// Database Version
 	private static final int DATABASE_VERSION = 1;
 	// Database Name
@@ -20,7 +23,6 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		// TODO Auto-generated method stub
 		// SQL statement to create table
 		String CREATE_TABLE = "CREATE TABLE PeriodicElements ( "
 				+ "atomicNo INTEGER PRIMARY KEY NOT NULL,"
@@ -109,6 +111,11 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
 		return element.getAtomicName() + " - " + element.getAtomicSymbol();
 
+	}
+	
+	public int getNumberFromDB(){
+		
+		return element.getAtomicNumber();
 	}
 
 	public void addALL(MySQLiteHelper db) {
