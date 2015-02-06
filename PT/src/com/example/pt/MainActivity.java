@@ -5,13 +5,14 @@ import java.io.InputStream;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
 
 public class MainActivity extends Activity {
-
+    public Element1 elements[] = new Element1[10]; //Creates array of elements to hold for calculator. Arbitrary size 10, thoughts? Guess I could do a linked list, but that's a lot more effort.
 	/*
 	 * Explanation of why db is static and why the methods fillDialog and
 	 * fillHeading were created. Only one instant of the database class is
@@ -115,6 +116,9 @@ public class MainActivity extends Activity {
 		if (id == R.id.action_Calculate_Switch) {
 			return true;
 		}
+        if(item.getItemId() == R.id.action_go_calculator){
+
+        }
 		return super.onOptionsItemSelected(item);
 	}
 

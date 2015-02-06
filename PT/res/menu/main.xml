@@ -8,4 +8,8 @@
         android:title="@string/CalculateSwitch"
         />
 
+    <item
+        android:id="@+id/action_go_calculator"
+        android:showAsAction="always"
+        android:title="="/>
 </menu>
