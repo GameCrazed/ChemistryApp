@@ -28,8 +28,11 @@ public class WebAppInterface extends Activity {
                 nPE.printStackTrace();
                  index = 0;
             }
+            if(index == 0){
+
+            }
             MainActivity.fillDialog(atomicSymbol);
-            Double mass = MainActivity.getNumber();
+            Double mass = MainActivity.getElementMass();
             try {
                 MainActivity.getActivityInstance().setElements(atomicSymbol,mass,index);
                 MainActivity.getActivityInstance().setIndex(index++);

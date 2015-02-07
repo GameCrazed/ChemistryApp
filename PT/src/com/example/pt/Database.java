@@ -130,6 +130,9 @@ public class Database extends SQLiteOpenHelper {
 
 		return element.getAtomicNumber(); // getters defined in Element class.
 	}
+    public Double getAtomicMassDB(){
+        return element.getAtomicMass();
+    }
 
 	// Adds all 118 elements into the database by calling the addElement method.
 	public void addALL(Database db) {

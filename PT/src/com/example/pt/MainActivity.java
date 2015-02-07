@@ -8,15 +8,16 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcel;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
 
 public class MainActivity extends Activity {
-    public int index = 0; //Uses to address elements array. To be incremented after every element is selected
+    public  int index = 0; //Uses to address elements array. To be incremented after every element is selected
     static MainActivity INSTANCE;   //instantiates a MainActivity so other classes can access methods
-    boolean calculate;  //holds whether the 'element selector' is active (for calculator)
-   public Element[] elements = new Element[20];
+    boolean calculate =false;  //holds whether the 'element selector' is active (for calculator)
+   public  Element[] elements = new Element[20];
 
     public void setCalculate(boolean newCalc){
         calculate = newCalc;
@@ -28,17 +29,25 @@ public class MainActivity extends Activity {
     public int getIndex(){
         return index;
     }
-    public void setElements(String newSymbol, Double newMass, int index){
+    public  void setElements(String newSymbol, Double newMass, int index){
         int newIndex = index;
-        elements[newIndex].setAtomicSymbol(newSymbol);
-        elements[newIndex].setAtomicMass(newMass);
+
+        Element x1 = new Element();
+        x1.setAtomicMass(newMass);
+        x1.setAtomicSymbol(newSymbol);
+
+//        elements[newIndex].setAtomicSymbol(newSymbol);
+//        elements[newIndex].setAtomicMass(newMass);
+
+        elements[newIndex] = x1;
+
 
     }
 
     public Element getElement( int index){
         return getActivityInstance().getElement(index);
     }
-    public void setIndex(int newIndex){
+    public  void setIndex(int newIndex){
         index = newIndex;
     }
 
@@ -138,9 +147,12 @@ public class MainActivity extends Activity {
 	// This method will return the atomicNumber. The way the database is set up,
 	// this is the only way to call it.
 	// Use MainActivity.getNumber() in the calculations.
-	public static double getNumber() {
-		return db.getNumberFromDB();
+	public static String getNumber(String atomicSymbol) {
+		return db.getElement(atomicSymbol);
 	}
+
+
+    public  static double getElementMass(){return db.getAtomicMassDB();}
 
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

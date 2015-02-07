@@ -19,11 +19,11 @@ public class Calculator extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
-        int index = ((globalHolder)getApplication()).getIndex();
+        int index = MainActivity.getActivityInstance().getIndex();
         Element[] elements = new Element[20];
         for(int i = 0;i<index;i++){
-         elements[i] = ((globalHolder)getApplication()).getElement(i);
-        }
+         elements[i] = MainActivity.getActivityInstance().getElement(index);
+    }
         String[] stringArray = new String[index];
         for(int i =0; i < index; i ++ ){
             stringArray[i] = (elements[i].getAtomicSymbol() + elements[i].getAtomicMass());
