@@ -9,7 +9,7 @@ public class Element {
 	private String electrons;
 
 	public Element() {
-		// empty Constructor
+		super();
 	}
 
 	public Element(int atomicNo, String atomicSymbol, String atomicName,

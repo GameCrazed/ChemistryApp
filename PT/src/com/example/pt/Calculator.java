@@ -4,14 +4,36 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TextView;
 
 
 public class Calculator extends Activity {
 
-    @Override
+
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
+        int index = ((globalHolder)getApplication()).getIndex();
+        Element[] elements = new Element[20];
+        for(int i = 0;i<index;i++){
+         elements[i] = ((globalHolder)getApplication()).getElement(i);
+        }
+        String[] stringArray = new String[index];
+        for(int i =0; i < index; i ++ ){
+            stringArray[i] = (elements[i].getAtomicSymbol() + elements[i].getAtomicMass());
+        }
+
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, stringArray);
+        ListView lv = (ListView) findViewById(R.id.listView);
+        lv.setAdapter(adapter);
+
     }
 
 
@@ -36,4 +58,13 @@ public class Calculator extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+    private AdapterView.OnItemClickListener mCH = new AdapterView.OnItemClickListener() {
+
+        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+          //  String Element = (String)adapterView.getItemAtPosition(i);
+           // stringArray[2] = Element;
+           // TextView tv = (TextView) findViewById(R.id.test_text_view);
+            //tv.setText(stringArray[2]);
+        }
+    };
 }

@@ -24,12 +24,20 @@ public class Element1 implements Parcelable {
         mass = newMass;
         electrons = newElectrons;
     }
+    public  Element1(){} //Empty constructor
     //Setters for all attributes
     public void setAtomicNo(int newAtomicNo){ atomicNo = newAtomicNo;}
     public void setSymbol(String newSymbol){ symbol = newSymbol;}
     public void setName(String newName){name = newName;}
     public void setMass(Double newMass){mass = newMass;}
     public void setElectrons(String newElectrons){electrons = newElectrons;}
+
+    //Getters for all attributes
+    public int getAtomicNo(){return atomicNo;}
+    public String getSymbol(){return  symbol;}
+    public String getName(){return  name;}
+    public Double getMass(){return mass;}
+    public String getElectrons(){return  electrons;}
 
     protected Element1(Parcel in) {
         atomicNo = in.readInt();
@@ -49,13 +57,9 @@ public class Element1 implements Parcelable {
         dest.writeInt(atomicNo);
         dest.writeString(symbol);
         dest.writeString(name);
-        if (mass == null) {
-            dest.writeByte((byte) (0x00));
-        } else {
-            dest.writeByte((byte) (0x01));
-            dest.writeDouble(mass);
-        }
+        dest.writeDouble(mass);
         dest.writeString(electrons);
+
     }
 
 

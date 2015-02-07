@@ -7,12 +7,41 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcel;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
 
 public class MainActivity extends Activity {
-    public Element1 elements[] = new Element1[10]; //Creates array of elements to hold for calculator. Arbitrary size 10, thoughts? Guess I could do a linked list, but that's a lot more effort.
+    public int index = 0; //Uses to address elements array. To be incremented after every element is selected
+    static MainActivity INSTANCE;   //instantiates a MainActivity so other classes can access methods
+    boolean calculate;  //holds whether the 'element selector' is active (for calculator)
+   public Element[] elements = new Element[20];
+
+    public void setCalculate(boolean newCalc){
+        calculate = newCalc;
+    }
+
+    public boolean getCalculate(){
+        return calculate;
+    }
+    public int getIndex(){
+        return index;
+    }
+    public void setElements(String newSymbol, Double newMass, int index){
+        int newIndex = index;
+        elements[newIndex].setAtomicSymbol(newSymbol);
+        elements[newIndex].setAtomicMass(newMass);
+
+    }
+
+    public Element getElement( int index){
+        return getActivityInstance().getElement(index);
+    }
+    public void setIndex(int newIndex){
+        index = newIndex;
+    }
+
 	/*
 	 * Explanation of why db is static and why the methods fillDialog and
 	 * fillHeading were created. Only one instant of the database class is
@@ -33,10 +62,12 @@ public class MainActivity extends Activity {
 	public static Database db;
 
 	@SuppressLint("SetJavaScriptEnabled")
-	@Override
+
+
+
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+        INSTANCE = this;
 		// Create a new WebView for HTML to run
 		WebView webView = new WebView(this);
 
@@ -73,10 +104,20 @@ public class MainActivity extends Activity {
 
 	}
 
-	// This method returns the atomic number, mass, and electrons of the element
-	// and is then used to populate the body of the AlertDialog.
-	// This method is called in the WebAppInterface class, in the method called
-	// displayElement.
+    public static MainActivity getActivityInstance(){
+        return  INSTANCE;
+    }
+
+
+
+
+
+
+
+    // This method returns the atomic number, mass, and electrons of the element
+    // and is then used to populate the body of the AlertDialog.
+    // This method is called in the WebAppInterface class, in the method called
+    // displayElement.
 	// Below method is calling another method called getElement which is in the
 	// Database class - please see that class for info on method.
 	public static String fillDialog(String atomicSymbol) {
@@ -97,7 +138,7 @@ public class MainActivity extends Activity {
 	// This method will return the atomicNumber. The way the database is set up,
 	// this is the only way to call it.
 	// Use MainActivity.getNumber() in the calculations.
-	public static int getNumber() {
+	public static double getNumber() {
 		return db.getNumberFromDB();
 	}
 
@@ -114,12 +155,26 @@ public class MainActivity extends Activity {
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_Calculate_Switch) {
+            MainActivity.getActivityInstance().calculate = !(calculate);
+
 			return true;
 		}
         if(item.getItemId() == R.id.action_go_calculator){
 
+        Intent intent = new Intent(this, Calculator.class);
+        startActivity(intent);
+
         }
 		return super.onOptionsItemSelected(item);
 	}
+    public Bundle setBundle(Bundle b, Element1 element){
+        b.putInt("atomicNo",element.atomicNo);
+        b.putString("symbol",element.symbol);
+        b.putString("name", element.name);
+        b.putDouble("mass",element.mass);
+        b.putString("electrons", element.electrons);
+        return b;
+
+    }
 
 }

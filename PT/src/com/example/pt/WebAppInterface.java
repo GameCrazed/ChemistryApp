@@ -16,26 +16,49 @@ public class WebAppInterface extends Activity {
 	}
 
 	public void displayElement(String atomicSymbol) {
+        boolean calculate = MainActivity.getActivityInstance().getCalculate();
 
-		// AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-		// mContext);
+        if (calculate == true) {
+            Context context = this;
+            int index;
+            try {
+                  index = MainActivity.getActivityInstance().getIndex();
+            }
+            catch (NullPointerException nPE){
+                nPE.printStackTrace();
+                 index = 0;
+            }
+            MainActivity.fillDialog(atomicSymbol);
+            Double mass = MainActivity.getNumber();
+            try {
+                MainActivity.getActivityInstance().setElements(atomicSymbol,mass,index);
+                MainActivity.getActivityInstance().setIndex(index++);
+            }
+            catch (NullPointerException nPE){
+                nPE.printStackTrace();
+                nPE.getMessage();
+            }
+        } else if (calculate != true) {
+            // AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+            // mContext);
 
-		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-				new ContextThemeWrapper(mContext, android.R.style.Theme_Holo));
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                    new ContextThemeWrapper(mContext, android.R.style.Theme_Holo));
 
-		alertDialogBuilder.setMessage(MainActivity.fillDialog(atomicSymbol));
-		alertDialogBuilder.setTitle(MainActivity.fillHeading());
+            alertDialogBuilder.setMessage(MainActivity.fillDialog(atomicSymbol));
+            alertDialogBuilder.setTitle(MainActivity.fillHeading());
 
-		// Back button.
-		alertDialogBuilder.setNeutralButton("Back",
-				new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog, int id) {
-					}
-				});
+            // Back button.
+            alertDialogBuilder.setNeutralButton("Back",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                        }
+                    });
 
-		AlertDialog alertDialog = alertDialogBuilder.create();
-		alertDialog.show();
-		// alertDialog.getWindow().setLayout(800,900);
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            alertDialog.show();
+            // alertDialog.getWindow().setLayout(800,900);
 
-	}
+        }
+    }
 }
