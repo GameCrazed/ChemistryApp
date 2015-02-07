@@ -2,6 +2,7 @@ package com.example.pt;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Vector;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -17,7 +18,7 @@ public class MainActivity extends Activity {
     public  int index = 0; //Uses to address elements array. To be incremented after every element is selected
     static MainActivity INSTANCE;   //instantiates a MainActivity so other classes can access methods
     boolean calculate =false;  //holds whether the 'element selector' is active (for calculator)
-   public  Element[] elements = new Element[20];
+   public  Element[] elements = new Element[2];
 
     public void setCalculate(boolean newCalc){
         calculate = newCalc;
@@ -36,13 +37,25 @@ public class MainActivity extends Activity {
         x1.setAtomicMass(newMass);
         x1.setAtomicSymbol(newSymbol);
 
+        Element x2 = new Element();
+        x2.setAtomicMass(newMass);
+        x2.setAtomicSymbol(newSymbol);
+
 //        elements[newIndex].setAtomicSymbol(newSymbol);
 //        elements[newIndex].setAtomicMass(newMass);
 
-        elements[newIndex] = x1;
-
+        elements[0] = x1;
+        elements[1] = x2;
+        index++;
 
     }
+
+
+    public static Element TEST(String Symbol){
+
+        return db.getArray(Symbol);
+    }
+
 
     public Element getElement( int index){
         return getActivityInstance().getElement(index);
@@ -172,8 +185,12 @@ public class MainActivity extends Activity {
 			return true;
 		}
         if(item.getItemId() == R.id.action_go_calculator){
-
+        Vector<Element> elements = new Vector();
+         elements = WebAppInterface.Vector();
+        elements.toArray(new String[0]);
         Intent intent = new Intent(this, Calculator.class);
+
+        intent.putExtra("vector", elements);
         startActivity(intent);
 
         }

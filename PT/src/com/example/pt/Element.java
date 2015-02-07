@@ -11,6 +11,10 @@ public class Element {
 	public Element() {
 		super();
 	}
+    public Element(String newSymbol, Double newMass){
+        atomicSymbol = newSymbol;
+        atomicMass = newMass;
+    }
 
 	public Element(int atomicNo, String atomicSymbol, String atomicName,
 			double atomicMass, String electrons) {

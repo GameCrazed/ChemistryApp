@@ -1,6 +1,7 @@
 package com.example.pt;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,6 +12,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.Vector;
+
 
 public class Calculator extends Activity {
 
@@ -19,22 +22,23 @@ public class Calculator extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
-        int index = MainActivity.getActivityInstance().getIndex();
-        Element[] elements = new Element[20];
-        for(int i = 0;i<index;i++){
-         elements[i] = MainActivity.getActivityInstance().getElement(index);
+        Intent intent = getIntent();
+      //  Vector<Element> elements = intent.getD
+
+      //  for(int i = 0;i<index;i++){
+        // elements[i] = MainActivity.getActivityInstance().getElement(index);
     }
-        String[] stringArray = new String[index];
-        for(int i =0; i < index; i ++ ){
-            stringArray[i] = (elements[i].getAtomicSymbol() + elements[i].getAtomicMass());
-        }
+        //String[] stringArray = new String[index];
+        //for(int i =0; i < index; i ++ ){
+          //  stringArray[i] = (elements[i].getAtomicSymbol() + elements[i].getAtomicMass());
+        //}
 
+//
+  //      ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, stringArray);
+    //    ListView lv = (ListView) findViewById(R.id.listView);
+      //  lv.setAdapter(adapter);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, stringArray);
-        ListView lv = (ListView) findViewById(R.id.listView);
-        lv.setAdapter(adapter);
-
-    }
+    //}
 
 
     @Override

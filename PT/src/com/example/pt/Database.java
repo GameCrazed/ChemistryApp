@@ -86,43 +86,81 @@ public class Database extends SQLiteOpenHelper {
 	// and used in AlertDialog and the calculator.
 	public String getElement(String atomicSymbol) {
 
-		// 1. get reference to readable DB
-		SQLiteDatabase db = this.getReadableDatabase();
+        // 1. get reference to readable DB
+        SQLiteDatabase db = this.getReadableDatabase();
 
-		Cursor cursor = db.query(TABLE_NAME, COLUMNS, "atomicSymbol = ?",
-				new String[] { (atomicSymbol) }, null, null, null, null);
+        Cursor cursor = db.query(TABLE_NAME, COLUMNS, "atomicSymbol = ?",
+                new String[] { (atomicSymbol) }, null, null, null, null);
 
-		// 3. if we got results get the first one
-		if (cursor != null) {
-			cursor.moveToFirst();
-		}
+        // 3. if we got results get the first one
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
 
-		// 4. build book object
+        // 4. build book object
 
-		element.setAtomicNo(Integer.parseInt(cursor.getString(0)));
-		element.setAtomicSymbol(cursor.getString(1));
-		element.setAtomicName(cursor.getString(2));
-		element.setAtomicMass(Double.parseDouble(cursor.getString(3)));
-		element.setElectrons(cursor.getString(4));
+        element.setAtomicNo(Integer.parseInt(cursor.getString(0)));
+        element.setAtomicSymbol(cursor.getString(1));
+        element.setAtomicName(cursor.getString(2));
+        element.setAtomicMass(Double.parseDouble(cursor.getString(3)));
+        element.setElectrons(cursor.getString(4));
 
-		// Log.d("getElement1(" + atomicSymbol + ")", element.toString());
+        // Log.d("getElement1(" + atomicSymbol + ")", element.toString());
 
-		return element.toString(); // toString method is in Element class and is
-									// overridden.
-	}
+        return element.toString(); // toString method is in Element class and is
+        // overridden.
+    }
 
-	// This method grabs the atomicSymbol and atomic Name, concat into a single
-	// String, returns the String which is then used at the heading for
-	// AlertDialog.
-	public String getName() {
 
-		return element.getAtomicSymbol() + " - " + element.getAtomicName(); // getters
-																			// defined
-																			// in
-																			// Element
-																			// class.
 
-	}
+
+
+
+    public Element getArray(String atomicSymbol) {
+
+        Element element1 = new Element();
+
+        // 1. get reference to readable DB
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(TABLE_NAME, COLUMNS, "atomicSymbol = ?",
+                new String[] { (atomicSymbol) }, null, null, null, null);
+
+        // 3. if we got results get the first one
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+
+        // 4. build book object
+
+        element1.setAtomicSymbol(cursor.getString(1));
+        element1.setAtomicMass(Double.parseDouble(cursor.getString(3)));
+
+
+
+
+return element1;
+
+
+
+
+    }
+
+
+
+
+    // This method grabs the atomicSymbol and atomic Name, concat into a single
+    // String, returns the String which is then used at the heading for
+    // AlertDialog.
+    public String getName() {
+
+        return element.getAtomicSymbol() + " - " + element.getAtomicName(); // getters
+        // defined
+        // in
+        // Element
+        // class.
+
+    }
 
 	// This method grabs the atomicNumber and returns it and is then used in the
 	// calculator.

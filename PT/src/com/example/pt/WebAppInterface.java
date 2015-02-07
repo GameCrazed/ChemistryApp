@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.view.ContextThemeWrapper;
 
+import java.util.Vector;
+
 public class WebAppInterface extends Activity {
 	Context mContext;
 
@@ -15,8 +17,29 @@ public class WebAppInterface extends Activity {
 
 	}
 
+   static Vector<String> symbols = new Vector();
+  public static Vector<Element> FINE = new Vector();
+
+
+    public static Vector<Element> Vector(){
+
+        for (int i=0; i<symbols.size(); i++){
+            String x1 = symbols.get(i);
+            FINE.add(i, MainActivity.TEST(x1));
+
+        }
+        return FINE;
+
+    }
+
+
 	public void displayElement(String atomicSymbol) {
         boolean calculate = MainActivity.getActivityInstance().getCalculate();
+
+        symbols.add(atomicSymbol);
+
+
+
 
         if (calculate == true) {
             Context context = this;
@@ -28,14 +51,14 @@ public class WebAppInterface extends Activity {
                 nPE.printStackTrace();
                  index = 0;
             }
-            if(index == 0){
 
-            }
             MainActivity.fillDialog(atomicSymbol);
             Double mass = MainActivity.getElementMass();
+
+
             try {
                 MainActivity.getActivityInstance().setElements(atomicSymbol,mass,index);
-                MainActivity.getActivityInstance().setIndex(index++);
+               // MainActivity.getActivityInstance().setIndex(index++);
             }
             catch (NullPointerException nPE){
                 nPE.printStackTrace();
