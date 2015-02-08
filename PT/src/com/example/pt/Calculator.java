@@ -31,6 +31,9 @@ public class Calculator extends Activity {
        ListView lv = (ListView) findViewById(R.id.listView);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, elements);
        lv.setAdapter(adapter);
+       String[] tempClear = new String[elements.length];
+       elements = tempClear;
+
 
     }
 

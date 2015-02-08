@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
+import android.widget.ListView;
 
 public class MainActivity extends Activity {
     public  int index = 0; //Uses to address elements array. To be incremented after every element is selected
@@ -203,6 +204,7 @@ public class MainActivity extends Activity {
         String totalMassStr = totalMass.toString();
         intent.putExtra("Extra_Element_String", elementString);
         intent.putExtra("Extra_Total_Mass", totalMassStr);
+
         startActivity(intent);
 
         }

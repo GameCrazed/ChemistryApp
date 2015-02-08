@@ -36,14 +36,11 @@ public class WebAppInterface extends Activity {
 	public void displayElement(String atomicSymbol) {
         boolean calculate = MainActivity.getActivityInstance().getCalculate();
 
-        symbols.add(atomicSymbol);
-
-
-
 
         if (calculate == true) {
             Context context = this;
             int index;
+            symbols.add(atomicSymbol);
             try {
                   index = MainActivity.getActivityInstance().getIndex();
             }
