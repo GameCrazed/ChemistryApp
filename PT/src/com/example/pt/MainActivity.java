@@ -187,6 +187,7 @@ public class MainActivity extends Activity {
 		}
         if(item.getItemId() == R.id.action_go_calculator){
          Vector<Element> elements = new Vector();
+
          elements = WebAppInterface.Vector();
          String[] elementString = new String[elements.size()+ 2];
             String tempStr;

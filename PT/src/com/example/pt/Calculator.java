@@ -53,7 +53,14 @@ public class Calculator extends Activity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_clear_calculator) {
+            WebAppInterface.Vector().clear();
+            WebAppInterface.symbols.clear();
+            ListView lv = (ListView) findViewById(R.id.listView);
+            String[] clear = new String[1];
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, clear);
+            lv.setAdapter(adapter);
+
             return true;
         }
 
