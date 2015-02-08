@@ -204,7 +204,7 @@ public class MainActivity extends Activity {
         String totalMassStr = totalMass.toString();
         intent.putExtra("Extra_Element_String", elementString);
         intent.putExtra("Extra_Total_Mass", totalMassStr);
-
+        WebAppInterface.Vector().clear();
         startActivity(intent);
 
         }
