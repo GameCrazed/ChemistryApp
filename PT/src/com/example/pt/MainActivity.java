@@ -185,12 +185,24 @@ public class MainActivity extends Activity {
 			return true;
 		}
         if(item.getItemId() == R.id.action_go_calculator){
-        Vector<Element> elements = new Vector();
+         Vector<Element> elements = new Vector();
          elements = WebAppInterface.Vector();
-        elements.toArray(new String[0]);
-        Intent intent = new Intent(this, Calculator.class);
+         String[] elementString = new String[elements.size()+ 2];
+            String tempStr;
+            Double tempDbl;
+            Double totalMass = 0.0;
+         for(int i = 0; i < elementString.length - 2;i++){
+             elementString[i] = elements.elementAt(i).getAtomicSymbol();
+             tempDbl=  elements.elementAt(i).getAtomicMass();
+             totalMass = totalMass + tempDbl;
+             tempStr = tempDbl.toString();
+             elementString[i] = elementString[i] + ", " + tempStr;
+         }
 
-        intent.putExtra("vector", elements);
+        Intent intent = new Intent(this, Calculator.class);
+        String totalMassStr = totalMass.toString();
+        intent.putExtra("Extra_Element_String", elementString);
+        intent.putExtra("Extra_Total_Mass", totalMassStr);
         startActivity(intent);
 
         }

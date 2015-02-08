@@ -23,22 +23,16 @@ public class Calculator extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
         Intent intent = getIntent();
-      //  Vector<Element> elements = intent.getD
+        String[] elements = intent.getStringArrayExtra("Extra_Element_String");
+        String totalMass = intent.getStringExtra("Extra_Total_Mass");
+        int lastIndex = elements.length;
+        elements[lastIndex-1] = "Total Mass = " + totalMass;
 
-      //  for(int i = 0;i<index;i++){
-        // elements[i] = MainActivity.getActivityInstance().getElement(index);
+       ListView lv = (ListView) findViewById(R.id.listView);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, elements);
+       lv.setAdapter(adapter);
+
     }
-        //String[] stringArray = new String[index];
-        //for(int i =0; i < index; i ++ ){
-          //  stringArray[i] = (elements[i].getAtomicSymbol() + elements[i].getAtomicMass());
-        //}
-
-//
-  //      ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, stringArray);
-    //    ListView lv = (ListView) findViewById(R.id.listView);
-      //  lv.setAdapter(adapter);
-
-    //}
 
 
     @Override
