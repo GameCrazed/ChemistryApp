@@ -3,6 +3,7 @@ package com.example.pt;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,6 +30,7 @@ public class Calculator extends Activity {
         elements[lastIndex-1] = "Total Mass = " + totalMass;
 
        ListView lv = (ListView) findViewById(R.id.listView);
+
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, elements);
        lv.setAdapter(adapter);
        String[] tempClear = new String[elements.length];
