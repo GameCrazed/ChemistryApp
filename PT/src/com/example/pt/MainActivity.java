@@ -191,12 +191,12 @@ public class MainActivity extends Activity {
 
          elements = WebAppInterface.Vector();
       //   String[] elementString = new String[elements.size()+ 2];
-            String[] elementString = new String[elements.size()];
+            String[] elementString = new String[elements.size()+ 1];
             String tempStr;
             Double tempDbl;
             Double totalMass = 0.0;
         // for(int i = 0; i < elementString.length - 2;i++){
-            for(int i = 0; i < elementString.length;i++){
+            for(int i = 0; i < elementString.length -1;i++){
              elementString[i] = elements.elementAt(i).getAtomicSymbol();
              tempDbl=  elements.elementAt(i).getAtomicMass();
              totalMass = totalMass + tempDbl;
