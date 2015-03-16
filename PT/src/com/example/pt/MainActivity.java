@@ -15,6 +15,8 @@ import android.view.MenuItem;
 import android.webkit.WebView;
 import android.widget.ListView;
 
+import uk.pisoc.chemapp.R;
+
 public class MainActivity extends Activity {
     public  int index = 0; //Uses to address elements array. To be incremented after every element is selected
     static MainActivity INSTANCE;   //instantiates a MainActivity so other classes can access methods

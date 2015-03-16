@@ -15,6 +15,8 @@ import android.widget.TextView;
 
 import java.util.Vector;
 
+import uk.pisoc.chemapp.R;
+
 
 public class Calculator extends Activity {
 

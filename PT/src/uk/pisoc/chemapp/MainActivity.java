@@ -190,20 +190,16 @@ public class MainActivity extends Activity {
 
          elements = WebAppInterface.Vector();
       //   String[] elementString = new String[elements.size()+ 2];
-<<<<<<< HEAD:PT/src/uk/pisoc/chemapp/MainActivity.java
-            String[] elementString = new String[elements.size()+1];
-=======
-            String[] elementString = new String[elements.size()+ 1];
->>>>>>> origin/master:PT/src/com/example/pt/MainActivity.java
+
+           String[] elementString = new String[elements.size()+ 1];
+
             String tempStr;
             Double tempDbl;
             Double totalMass = 0.0;
         // for(int i = 0; i < elementString.length - 2;i++){
-<<<<<<< HEAD:PT/src/uk/pisoc/chemapp/MainActivity.java
-            for(int i = 0; i < elementString.length-1;i++){
-=======
-            for(int i = 0; i < elementString.length -1;i++){
->>>>>>> origin/master:PT/src/com/example/pt/MainActivity.java
+
+           for(int i = 0; i < elementString.length -1;i++){
+
              elementString[i] = elements.elementAt(i).getAtomicSymbol();
              tempDbl=  elements.elementAt(i).getAtomicMass();
              totalMass = totalMass + tempDbl;
