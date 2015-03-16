@@ -1,5 +1,5 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" tools:context="com.example.pt.Calculator">
+    xmlns:tools="http://schemas.android.com/tools" tools:context="uk.pisoc.chemapp.Calculator">
     <item android:id="@+id/action_clear_calculator" android:title="CLEAR"
         android:orderInCategory="100" android:showAsAction="always"
         />

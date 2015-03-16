@@ -1,0 +1,59 @@
+-- Merging decision tree log ---
+manifest
+ADDED from AndroidManifest.xml:2:1
+	xmlns:android
+		ADDED from AndroidManifest.xml:2:11
+	package
+		ADDED from AndroidManifest.xml:3:2
+	android:versionName
+		ADDED from AndroidManifest.xml:3:51
+	android:versionCode
+		ADDED from AndroidManifest.xml:3:27
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
+uses-sdk
+ADDED from AndroidManifest.xml:5:2
+	android:targetSdkVersion
+		ADDED from AndroidManifest.xml:5:39
+	android:minSdkVersion
+		ADDED from AndroidManifest.xml:5:12
+application
+ADDED from AndroidManifest.xml:7:2
+	android:label
+		ADDED from AndroidManifest.xml:8:3
+	android:allowBackup
+		ADDED from AndroidManifest.xml:7:15
+	android:icon
+		ADDED from AndroidManifest.xml:7:42
+	android:theme
+		ADDED from AndroidManifest.xml:8:36
+activity#uk.pisoc.chemapp.MainActivity
+ADDED from AndroidManifest.xml:9:3
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:9:75
+	android:label
+		ADDED from AndroidManifest.xml:9:42
+	android:name
+		ADDED from AndroidManifest.xml:9:13
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from AndroidManifest.xml:10:4
+action#android.intent.action.MAIN
+ADDED from AndroidManifest.xml:11:5
+	android:name
+		ADDED from AndroidManifest.xml:11:13
+category#android.intent.category.LAUNCHER
+ADDED from AndroidManifest.xml:14:5
+	android:name
+		ADDED from AndroidManifest.xml:14:15
+activity#uk.pisoc.chemapp.Calculator
+ADDED from AndroidManifest.xml:18:3
+	android:label
+		ADDED from AndroidManifest.xml:18:40
+	android:name
+		ADDED from AndroidManifest.xml:18:13
+intent-filter#android.intent.action.VIEW
+ADDED from AndroidManifest.xml:19:4
+action#android.intent.action.VIEW
+ADDED from AndroidManifest.xml:20:5
+	android:name
+		ADDED from AndroidManifest.xml:20:13
